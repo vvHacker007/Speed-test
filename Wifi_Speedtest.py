@@ -14,14 +14,19 @@ global connected
 connected = None
 global result
 result = None
+st = speedtest.Speedtest() 
 global download
-download = None
+download = st.download()/1048576
 global upload
-upload = None
+upload = st.upload()/1048576
 global ping
-ping = None
+servernames =[]
+names = st.get_servers(servernames)
+ping = st.results.ping
+data = [download,upload,ping]
+formated_data = ['%.2f' % elem for elem in data]
 global message
-message = None
+message = 'Download Speed: {}Mbps, \nUpload Speed: {}Mbps,\n Ping: {}ms'.format(*formated_data)
 
 def network():
     st = speedtest.Speedtest() 
