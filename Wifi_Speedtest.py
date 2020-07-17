@@ -14,21 +14,29 @@ global connected
 connected = None
 global result
 result = None
-st = speedtest.Speedtest() 
 global download
-download = st.download()/1048576
+download = None
 global upload
-upload = st.upload()/1048576
+upload = None
 global ping
-servernames =[]
-names = st.get_servers(servernames)
-ping = st.results.ping
-data = [download,upload,ping]
-formated_data = ['%.2f' % elem for elem in data]
+ping = None
 global message
-message = 'Download Speed: {}Mbps, \nUpload Speed: {}Mbps,\n Ping: {}ms'.format(*formated_data)
+message = None
 
 def network():
+    st = speedtest.Speedtest() 
+    global download
+    download = st.download()/1048576
+    global upload
+    upload = st.upload()/1048576
+    global ping
+    servernames =[]
+    names = st.get_servers(servernames)
+    ping = st.results.ping
+    data = [download,upload,ping]
+    formated_data = ['%.2f' % elem for elem in data]
+    global message
+    message = 'Download Speed: {}Mbps, \nUpload Speed: {}Mbps,\n Ping: {}ms'.format(*formated_data)
     try:
         urllib.request.urlopen('https://google.com')
         return True
