@@ -27,8 +27,12 @@ data = [download,upload,ping]
 formated_data = ['%.2f' % elem for elem in data]
 global message
 message = 'Download Speed: {}Mbps, \nUpload Speed: {}Mbps,\n Ping: {}ms'.format(*formated_data)
+global flag
+flag = 0
 
 def network():
+    global flag
+    flag = 0
     st = speedtest.Speedtest() 
     global download
     download = st.download()/1048576
@@ -88,7 +92,8 @@ class gif(Label):
         self.config(image=self.frames[self.idx])
         self.idx += 1
         if self.idx == len(self.frames):
-            self.idx = 0
+            global flag
+            flag = 1
         self.cancel = self.after(self.delay, self.play)
 
 def restart():
