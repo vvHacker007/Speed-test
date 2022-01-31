@@ -3,4 +3,4 @@ In this project i have created an **internet speed testing application** which c
 The application will also detect whether or not the system is connected to internet connection and can notify about it.
 
 ## Application Demo
-[![Demo]({"https://github.com/vvHacker007/Speed-test/blob/master/speedtest_start.gif"})]({"https://github.com/vvHacker007/Speed-test/blob/master/speedtest_project.mp4"} "Application Demo")
+[![Demo]({"https://github.com/vvHacker007/Speed-test/blob/master/speedtest_start.gif"})]({"https://www.linkedin.com/posts/activity-6689988964033585153-fxFQ"} "Application Demo")
